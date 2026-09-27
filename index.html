@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>执信 · Anker 售后接稳 Agent（预赛演示）</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%231c5aa8'/><g fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'><path d='M5 14a7 7 0 0 1 14 0'/><rect x='4' y='13' width='3.4' height='5' rx='1.4'/><rect x='16.6' y='13' width='3.4' height='5' rx='1.4'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="style.css?v=19">
+</head>
+<body>
+
+<!-- ══════════ 顶栏 ══════════ -->
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 14a8 8 0 0 1 16 0"/>
+        <rect x="3" y="13" width="4" height="6" rx="1.6"/>
+        <rect x="17" y="13" width="4" height="6" rx="1.6"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <h1>执信 · Anker 售后接稳 Agent</h1>
+      <p>智能服务赛道 · 预赛演示</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <div class="seg">
+      <button id="modeRule" class="active">规则演示</button>
+      <button id="modeLlm">LLM 增强</button>
+    </div>
+    <button id="btnTrace" class="icon-btn" title="处理过程（执行依据）">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="4" width="14" height="16" rx="2"/>
+        <line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/>
+      </svg>
+    </button>
+    <button id="btnNew" class="icon-btn" title="新对话">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 4v4h-4"/>
+        <path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 20v-4h4"/>
+      </svg>
+    </button>
+    <button id="btnHelp" class="icon-btn" title="演示导览">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M9.6 9.4a2.5 2.5 0 0 1 4 2c-.8.7-1.6 1.2-1.6 2.4"/><path d="M12 17h.01"/>
+      </svg>
+    </button>
+    <button id="btnSettings" class="icon-btn" title="LLM 设置">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>
+        <circle cx="9" cy="7" r="1.5" fill="currentColor" stroke="none"/>
+        <circle cx="15" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+        <circle cx="8" cy="17" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ══════════ 主区域 ══════════ -->
+<main class="stage">
+  <div class="chat">
+
+    <div class="scenario-bar">
+      <button class="scn" data-scn="A">A 愤怒客诉 · 换货</button>
+      <button class="scn" data-scn="B">B 图片 · S1 Pro 消歧</button>
+      <button class="scn" data-scn="C">C 非授权 · 超保</button>
+      <button class="scn" data-scn="D">D English</button>
+
+      <button class="scn" data-scn="free">自由输入</button>
+    </div>
+
+    <div id="messages" class="messages">
+      <div class="welcome" id="welcome">
+        <div class="wl">
+          <h2>说说看，出了什么状况？<br>发张照片也行，我来接。</h2>
+          <p>我会先接住情绪、问清情况，再核对质保与渠道，能办的当场办，换货退款这类重要动作会请人工确认。</p>
+          <div class="welcome-scn">
+            <button data-scn="A"><span class="t">愤怒客诉 · 换货</span></button>
+            <button data-scn="B"><span class="t">S1 Pro · 分清哪台</span></button>
+            <button data-scn="C"><span class="t">非授权 · 超保</span></button>
+            <button data-scn="D"><span class="t">English · 语言跟随</span></button>
+          </div>
+          <div class="quick-row">
+            <span class="qlabel">试试：</span>
+            <button class="qchip" data-q="充电器发烫了怎么办">充电器发烫了怎么办</button>
+            <button class="qchip" data-q="我的订单 ORD-44107 到哪了？">查物流</button>
+            <button class="qchip" data-q="S1 Pro 保修多久？">保修政策</button>
+          </div>
+        </div>
+        <div class="hero-img">
+          <img src="assets/img/vacuum.jpg" alt="">
+          <div class="hero-cap">eufy S1 Pro（官方渠道图片）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="composer">
+      <div id="photoChip" class="photo-chip hidden"></div>
+      <div class="composer-row">
+        <button id="btnPhoto" class="round-btn" title="附照片">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="9" cy="10" r="1.6"/>
+            <path d="m4 18 4.5-4.5a2 2 0 0 1 2.8 0L18 20"/>
+          </svg>
+        </button>
+        <input id="input" type="text" placeholder="描述问题，可附上照片…" autocomplete="off">
+        <button id="btnSend" class="send-btn" title="发送">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="6"/><polyline points="6 11 12 5 18 11"/>
+          </svg>
+        </button>
+      </div>
+      <div id="photoPicker" class="photo-picker hidden"></div>
+      <div id="scriptHint" class="script-hint hidden"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ 抽屉：处理过程 ══════════ -->
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <aside class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div>
+        <h3>处理过程</h3>
+        <div class="sub">展示执行记录与依据，不展示内部思考</div>
+      </div>
+      <button class="x" id="drawerClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="steps" id="steps">
+      <div class="s" data-i="0"><span class="dot">01</span><span class="lb">情绪</span></div>
+      <div class="s" data-i="1"><span class="dot">02</span><span class="lb">消歧</span></div>
+      <div class="s" data-i="2"><span class="dot">03</span><span class="lb">质保</span></div>
+      <div class="s" data-i="3"><span class="dot">04</span><span class="lb">检索</span></div>
+      <div class="s" data-i="4"><span class="dot">05</span><span class="lb">确认</span></div>
+      <div class="s" data-i="5"><span class="dot">06</span><span class="lb">满意度</span></div>
+    </div>
+    <div class="drawer-body" id="cards">
+      <div style="color:var(--text-3);font-size:12px;text-align:center;margin-top:40px;line-height:2;">每一步的执行记录和依据，都会在这里。<br>先发条消息试试。</div>
+    </div>
+  </aside>
+</main>
+
+<!-- ══════════ 设置弹窗 ══════════ -->
+<div id="settingsModal" class="modal hidden">
+  <div class="modal-box">
+    <h3>LLM 增强模式 · 设置</h3>
+    <p class="modal-note">LLM 仅生成对话回复；处理过程里的判定与证据始终由本地规则引擎驱动，保证可复现。Key 只保存在本机，不外传。</p>
+    <label>API 端点（OpenAI 兼容）<input id="cfgEndpoint" placeholder="https://api.deepseek.com/v1"></label>
+    <label>API Key<input id="cfgKey" type="password" placeholder="sk-…"></label>
+    <label>模型<input id="cfgModel" placeholder="deepseek-chat"></label>
+    <p class="modal-tip">DeepSeek <code>https://api.deepseek.com/v1</code> · 阿里百炼兼容模式 <code>https://dashscope.aliyuncs.com/compatible-mode/v1</code>（模型 qwen-plus）</p>
+    <div class="modal-actions">
+      <button id="cfgCancel">取消</button>
+      <button id="cfgSave" class="primary">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 导览弹窗 ══════════ -->
+<div id="helpModal" class="modal hidden">
+  <div class="modal-box wide">
+    <h3>演示导览 · 方案三功能与处理过程对照</h3>
+    <table class="help-table">
+      <tr><td>功能一 · 情绪分层接稳</td><td>每条消息实时四级分档，处理方式（响应优先级 / 补偿建议 / 转人工阈值 / 追问节奏）随档位变化，跃迁留痕</td></tr>
+      <tr><td>功能二 · 质保判定证据链</td><td>订单字段 + 经销商规则（country 精准、seller 模糊）逐条引用；换货退款由 AI 备好工单、人工确认后执行</td></tr>
+      <tr><td>功能三 · 识图与消歧</td><td>提取照片里看得见的信息，特征够直接识别；同名款信息不足时问一句用途（S1 Pro 扫地机 / 吸奶器）</td></tr>
+      <tr><td>幻觉防护（贯穿）</td><td>排障结论引用知识库编号；检索不到则诚实升级人工，绝不编造</td></tr>
+    </table>
+    <h3 style="margin-top:18px;font-size:14px;">录屏建议（约 2 分钟）</h3>
+    <ol class="help-ol">
+      <li>场景 A：愤怒消息 → 档位升至投诉风险、处理方式联动 → 质保证据 → 打开处理过程抽屉 → 人工确认 → 满意度</li>
+      <li>场景 B：传照片 → 双候选与关键一问 → 引用 KB-014 排障</li>
+      <li>场景 C：非授权 + 超保 → 如实告知边界，不编造承诺</li>
+      <li>场景 D：英文同样跑通全链路，佐证双语与海外场景</li>
+    </ol>
+    <p class="modal-tip" style="margin-top:12px;">产品图片来自 Anker / eufy / Spectra 官方公开渠道，仅作演示；订单、质保、价格与工单均为按官方字段结构自建的模拟数据。</p>
+    <div class="modal-actions"><button id="helpClose" class="primary">知道了</button></div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="data.js?v=19"></script>
+<script src="engine.js?v=19"></script>
+<script src="llm.js?v=19"></script>
+<script src="app.js?v=19"></script>
+</body>
+</html>
